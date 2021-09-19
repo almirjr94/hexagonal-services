@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      password: example
+      username: root
+      host: localhost
+      port: 27017
+      database: car
