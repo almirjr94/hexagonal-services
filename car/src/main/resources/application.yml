@@ -1,8 +1,7 @@
 spring:
   data:
     mongodb:
-      password: example
-      username: root
-      host: localhost
-      port: 27017
+      password: ${DB_PASSWORD}
+      username: ${DB_USER}
+      host: ${DB_URL}
       database: car

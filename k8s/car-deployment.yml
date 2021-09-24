@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-dp
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: car
+  template:
+    metadata:
+      labels:
+        app: car
+    spec:
+      containers:
+        - name: car
+          image: almirjr94/car-service:0.0.1
+          imagePullPolicy: Always
+          env:
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: mongo-user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: mongo-password
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: mongo-configmap
+                  key: database-url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: car-svc
+spec:
+  selector:
+    app: car
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer

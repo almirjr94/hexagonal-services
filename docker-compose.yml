@@ -11,6 +11,10 @@ services:
       - "9091:8080"
     depends_on:
       - mongo
+    environment:
+      DB_PASSWORD: example
+      DB_USER: root
+      DB_URL: mongo
 
 
   mongo:
