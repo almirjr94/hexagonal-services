@@ -12,9 +12,9 @@ services:
     depends_on:
       - mongo
     environment:
-      DB_PASSWORD: example
-      DB_USER: root
-      DB_URL: mongo
+      SPRING_DATA_MONGODB_PASSWORD: example
+      SPRING_DATA_MONGODB_USERNAME: root
+      SPRING_DATA_MONGODB_HOST: mongo
 
 
   mongo:

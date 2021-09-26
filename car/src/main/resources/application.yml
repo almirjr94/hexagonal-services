@@ -1,7 +1,4 @@
 spring:
   data:
     mongodb:
-      password: ${DB_PASSWORD}
-      username: ${DB_USER}
-      host: ${DB_URL}
       database: car

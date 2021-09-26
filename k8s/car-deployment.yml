@@ -17,17 +17,17 @@ spec:
           image: almirjr94/car-service:0.0.1
           imagePullPolicy: Always
           env:
-            - name: DB_USER
+            - name: SPRING_DATA_MONGODB_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: mongo-secret
                   key: mongo-user
-            - name: DB_PASSWORD
+            - name: SPRING_DATA_MONGODB_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: mongo-secret
                   key: mongo-password
-            - name: DB_URL
+            - name: SPRING_DATA_MONGODB_HOST
               valueFrom:
                 configMapKeyRef:
                   name: mongo-configmap
